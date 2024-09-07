@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{888F8E77-C1F0-4B50-ABAD-EFFD3E3754E2}|https">
+  <MonoDevelop.Ide.ItemProperties.InsurenceProject PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="InsurenceProject/Areas/User/Controllers/PolicyController.cs">
+    <Files>
+      <File FileName="InsurenceProject/Areas/User/Controllers/PolicyController.cs" Line="13" Column="36" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InsuranceApplication" expanded="True">
+            <Node name="InsurenceProject">
+              <Node name="Areas" expanded="True">
+                <Node name="User" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True">
+                    <Node name="Policy" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

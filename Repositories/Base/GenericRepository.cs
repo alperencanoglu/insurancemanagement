@@ -1,9 +1,10 @@
+using System.Linq.Expressions;
 using Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repositories.Base;
 
-public class GenericRepository<T> : IGenericRepository<T> where T : class, IDisposable
+public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     
     private readonly ApplicationDbContext _context;
@@ -15,10 +16,15 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class, IDisp
         _dbSet = context.Set<T>();
     }
 
-
-    public async Task<IEnumerable<T>> GetAll()
+    //get all with include properties
+    public async Task<IQueryable<T>> GetAll(params Expression<Func<T, object>>[] includes)
     {
-        return await _dbSet.ToListAsync();
+        var query = _dbSet.AsQueryable();
+        return includes.Aggregate(query, (current, include) => current.Include(include));
+    }
+    public async Task<IQueryable<T>> GetAll()
+    {
+        return  _dbSet.AsQueryable();
     }
 
     public async Task<T> GetById(int id)

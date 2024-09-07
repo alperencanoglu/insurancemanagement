@@ -1,6 +1,12 @@
+using Domain.User;
 using Infrastructure.Database;
+using Infrastructure.Initializers;
+using Infrastructure.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Repositories.UnitOfWork;
+using Service.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +16,20 @@ builder.Services.AddControllersWithViews();
 //add db context with sql server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
+
+
+
+//every time requested one instance for one user!
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+//transient every time requested
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddRazorPages();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddTransient<IPolicyService, PolicyService>();
 
 var app = builder.Build();
 
@@ -27,9 +47,31 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
+DataSeed();
+app.MapRazorPages();
+
+//routing
+app.MapAreaControllerRoute(
+    name: "User",
+    areaName: "User",
+    
+    pattern: "User/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+
 app.Run();
+
+
+void DataSeed()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbinitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbinitializer.Initialize();
+    }
+}

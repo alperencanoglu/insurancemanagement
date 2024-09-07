@@ -8,13 +8,13 @@ namespace Infrastructure.Initializers;
 
 public class DbInitializer: IDbInitializer
 {
-    private UserManager<IdentityUser> _userManager;
+    private UserManager<User> _userManager;
     private RoleManager<IdentityRole> _roleManager;
     
     
     private readonly ApplicationDbContext _context;
 
-    public DbInitializer(ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+    public DbInitializer(ApplicationDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
     {
         _context = context;
         _userManager = userManager;

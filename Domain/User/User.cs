@@ -8,4 +8,6 @@ public class User:IdentityUser
    
     public string Name { get; set; }
     public Int16 ProfileType { get; set; }
+    
+    public ICollection<Policies> Policies { get; set; }
 }
