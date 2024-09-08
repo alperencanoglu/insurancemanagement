@@ -53,6 +53,21 @@ public class AgreementService :IAgreementService
             
         return result;
     }
+    
+    public PaginatedResult<AgreementViewModel> GetAgreementsWithName(string name)
+    {
+        var unitOfWorkResult = _unitOfWork.Repository<Domain.Agreement.Agreement>().GetAll(x=>x.Partner).Result;
+        var agreements = unitOfWorkResult.Where(x => x.AgreementName.ToLower().Contains( name.ToLower())).Take(10).Select(x => new AgreementViewModel(x)).ToList();
+        var result = new PaginatedResult<AgreementViewModel>
+        {
+            Page = 1,
+            PageSize = 10,
+            TotalPages = unitOfWorkResult.Count() / 100,
+            TotalCount = unitOfWorkResult.Count(),
+            Items = agreements
+        };
+        return result;
+    }
     //add 
     public void AddAgreement(AgreementViewModel agreementViewModel)
     {

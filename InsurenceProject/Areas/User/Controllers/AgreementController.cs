@@ -55,6 +55,12 @@ namespace WebApplication5.Controllers
             return View(agreementFilterModel);
            
         }
+        [HttpPost]
+        public List<AgreementViewModel> GetAgreementsWithName(string name)
+        {
+            var agreements = _agreementService.GetAgreementsWithName(name);
+            return agreements.Items.ToList();
+        }
 
         // GET: Policy/Details/5
         public ActionResult Details(int id)

@@ -4,25 +4,34 @@
 @{
     ViewData["Title"] = "Index";
 }
+
 <h1>Agreements</h1>
 <div class="row">
-<form method="get" asp-action="Index">
-    <div class="form-group col-md-3">
-        <label>Partner Seçin</label>
-        <select asp-for="SelectedPartnerIds" asp-items="Model.Partners" multiple class="form-control">
-        </select>
+    <form method="get" asp-action="Index">
+        <div class="col-md-12" style="float:left">
+            <div class="form-group col-md-3" style="float:left;"> 
+                <label>Partner Seçin</label>
+                <select asp-for="SelectedPartnerIds" asp-items="Model.Partners" multiple class="form-control">
+                </select>
+            </div>
+            <div class="form-group col-md-3 " style="float:left;">
+                <label>Başlangıç Tarihi</label>
+                <input asp-for="StartDate" class="form-control" type="date"/>
+            </div>
+            <div class="form-group col-md-3" style="float:left;">
+                <label>Bitiş Tarihi</label>
+                <input asp-for="EndDate" class="form-control" type="date"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Filtrele</button>
+        </div>
+    </form>
+    <div class="col-md-12">
+        <div class="ui-widget" id="searchbox-container">
+            <label for="agreementsautocomplete">Agreements: </label>
+                <input class="input is-dark" type="text" name="city" placeholder="Search Agreement" id="searchbox" autocomplete="off" />
+                <div class="control" id="dropdown-menu"></div>
+        </div>
     </div>
-    <div class="form-group col-md-3 ">
-        <label>Başlangıç Tarihi</label>
-        <input asp-for="StartDate" class="form-control" type="date" />
-    </div>
-    <div class="form-group col-md-3">
-        <label>Bitiş Tarihi</label>
-        <input asp-for="EndDate" class="form-control" type="date" />
-    </div>
-    <button type="submit" class="btn btn-primary">Filtrele</button>
-    <button type="reset" class="btn btn-primary">Temizle</button>
-</form>
 </div>
 <table class="table">
     <thead>
@@ -66,3 +75,75 @@
 }
     </tbody>
 </table>
+
+
+<script>
+    const searchBox = document.getElementById('searchbox');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const searchBoxContainer = document.getElementById('searchbox-container');
+
+    searchBox.addEventListener("keyup", function(event) {
+
+        const timer = setTimeout(function () {
+            var sr = event.target.value;
+            if(!sr) return; //Do nothing for empty value
+            searchBoxContainer.classList.add("control", "is-loading");
+
+            const request = new Request('@Url.Action("GetAgreementsWithName", "Agreement", new { Area = "User" })');
+            fetch(request,{method:'POST', body:'name='+sr, headers: new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded', 
+                }),} )
+                .then((response) => response.json())
+                .then((data) => {
+                    if (searchBox.value) { //src not cleaned, backspace removed
+                        dropdownMenu.replaceChildren(searchResult(data));
+                    }
+                    searchBoxContainer.classList.remove("is-loading");
+                });
+
+        }, 500);
+    });
+
+
+    function searchResult(result){
+
+        const ul = document.createElement('ul')
+        ul.classList.add('box', 'mt-1' );
+
+        loc.forEach((x)=>{
+            if(!x)return;
+            ul.appendChild(createListItem(x))
+        })
+
+        return ul;
+    }
+    function createListItem(x){
+
+        const li = document.createElement('li')
+        li.classList.add('py-1'); 
+        li.innerText = x.name
+
+        const selectEvent = function(event){
+            event.stopPropagation(); 
+            const li = event.target
+            clearDropdown();
+            searchBox.value = x.agreementName;
+        };
+
+        li.addEventListener('click', selectEvent)
+        li.addEventListener('touchstart', selectEvent)
+
+        return li
+    }
+    function clearDropdown(){
+        dropdownMenu.innerHTML = '';
+        searchBoxContainer.classList.remove("is-loading");
+    }
+
+    //keep checking for an empty search box every 5 seconds
+    setInterval(function() {
+        if (!searchBox.value) { //empty search box
+            clearDropdown()
+        }
+    }, 500);
+</script>
