@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Models.AgreementViewModel.AgreementFilterViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Agreements</h1>
+<div class="row">
+<form method="get" asp-action="Index">
+    <div class="form-group col-md-3">
+        <label>Partner Seçin</label>
+        <select asp-for="SelectedPartnerIds" asp-items="Model.Partners" multiple class="form-control">
+        </select>
+    </div>
+    <div class="form-group col-md-3 ">
+        <label>Başlangıç Tarihi</label>
+        <input asp-for="StartDate" class="form-control" type="date" />
+    </div>
+    <div class="form-group col-md-3">
+        <label>Bitiş Tarihi</label>
+        <input asp-for="EndDate" class="form-control" type="date" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrele</button>
+    <button type="reset" class="btn btn-primary">Temizle</button>
+</form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().AgreementName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().RiskAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PaginatedResult.Items) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgreementName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskAmount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

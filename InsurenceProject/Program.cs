@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Repositories.UnitOfWork;
+using Service.Agreement;
+using Service.Partner;
 using Service.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,7 @@ builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<Appl
 
 
 
+
 //every time requested one instance for one user!
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 //transient every time requested
@@ -30,6 +33,8 @@ builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddTransient<IPolicyService, PolicyService>();
+builder.Services.AddTransient<IAgreementService, AgreementService>();
+builder.Services.AddTransient<IPartnerService, PartnerService>();
 
 var app = builder.Build();
 

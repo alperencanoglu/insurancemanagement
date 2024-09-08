@@ -37,7 +37,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PartnerId")
+                    b.Property<int?>("PartnerId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("RiskAmount")
@@ -342,9 +342,7 @@ namespace Infrastructure.Migrations
                 {
                     b.HasOne("Domain.Partner.Partner", "Partner")
                         .WithMany("Agreements")
-                        .HasForeignKey("PartnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PartnerId");
 
                     b.Navigation("Partner");
                 });

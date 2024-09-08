@@ -8,14 +8,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84cfd3cb-d914-4df6-a4f2-09186331fde4" name="Changes" comment="db migration &#10;currently you can add policy as normal user">
+    <list default="true" id="84cfd3cb-d914-4df6-a4f2-09186331fde4" name="Changes" comment="&#10;agreement, partner, riskanalysis  models&#10;migration">
       <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Agreement/Agreement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Partner/Partner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/RiskAnalysis/RiskAnalysis.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240908113014_migration_5.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240908113014_migration_5.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Controllers/AgreementController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Agreement/Create.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Agreement/Delete.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Agreement/Details.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Agreement/Edit.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Agreement/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/AgreementViewModel/AgreementFilterModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/AgreementViewModel/AgreementViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/PartnerViewModel/PartnerViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/Agreement/AgreementService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/Agreement/IAgreementService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/Partners/IPartnerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Service/Partners/PartnerService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Database/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Database/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/Policy/PolicyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Policy/PolicyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Agreement/Agreement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Agreement/Agreement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InsurenceProject/InsurenceProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/InsurenceProject.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InsurenceProject/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Models.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Models.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/Repositories.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repositories.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/Service.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Service.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +159,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725632858485</updated>
-      <workItem from="1725632859633" duration="24070000" />
+      <workItem from="1725632859633" duration="31158000" />
     </task>
     <task id="LOCAL-00001" summary="sigortacilik first commit application db context ve yapı ayarlaması base">
       <option name="closed" value="true" />
@@ -166,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725751106177</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&#10;agreement, partner, riskanalysis  models&#10;migration">
+      <option name="closed" value="true" />
+      <created>1725783195446</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725783195446</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +218,8 @@
     <MESSAGE value="sigortacilik first commit application db context ve yapı ayarlaması base" />
     <MESSAGE value="commit fix" />
     <MESSAGE value="db migration &#10;currently you can add policy as normal user" />
-    <option name="LAST_COMMIT_MESSAGE" value="db migration &#10;currently you can add policy as normal user" />
+    <MESSAGE value="&#10;agreement, partner, riskanalysis  models&#10;migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;agreement, partner, riskanalysis  models&#10;migration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -208,6 +236,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InsurenceProject/Areas/User/Controllers/AgreementController.cs</url>
+          <line>82</line>
+          <properties documentPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Controllers/AgreementController.cs" containingFunctionPresentation="Method 'Create'">
+            <startOffsets>
+              <option value="2711" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2776" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

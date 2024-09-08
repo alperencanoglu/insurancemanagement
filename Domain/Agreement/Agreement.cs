@@ -6,7 +6,7 @@ public class Agreement
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public decimal RiskAmount { get; set; }
-    public int PartnerId { get; set; }
+    public int? PartnerId { get; set; }
 
-    public  Partner.Partner Partner { get; set; }
+    public  Partner.Partner? Partner { get; set; }
 }

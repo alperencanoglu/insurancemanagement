@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="EntityFrameworkCore.Data.QueryBuilder" Version="7.0.13" />
+    </ItemGroup>
+
 </Project>
