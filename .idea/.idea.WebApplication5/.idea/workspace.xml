@@ -8,66 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84cfd3cb-d914-4df6-a4f2-09186331fde4" name="Changes" comment="commit fix">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.InsuranceApplication/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.InsuranceApplication/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.InsuranceApplication/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.InsuranceApplication/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.InsuranceApplication/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/dataSources/4393f1b5-6690-4867-acbd-9d2f19f71f23/storage_v2/_src_/database/sigortacilik.J52W_w/schema/dbo.sYMBAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/UserPrefs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/project-cache/Domain-Debug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/project-cache/Infrastructure-Debug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/project-cache/InsurenceProject-Debug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/project-cache/Models-Debug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/project-cache/Repositories-Debug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InsuranceApplication/xs/project-cache/Service-Debug.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Policies/Policies.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240907180440_Initial.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240907180440_Initial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240907211329_migration_2.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240907211329_migration_2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240907230508_migration_3.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/20240907230508_migration_3.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Pagination/PaginatedResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Utilities/EmailSender.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Controllers/PolicyController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Home/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Policy/Create.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/Views/Policy/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/_ViewImports.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InsurenceProject/Areas/User/_ViewStart.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Models.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/PolicyViewModel/PolicyViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service/Policy/IPolicyService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service/Policy/PolicyService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service/Service.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/User/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/User/User.cs" afterDir="false" />
+    <list default="true" id="84cfd3cb-d914-4df6-a4f2-09186331fde4" name="Changes" comment="db migration &#10;currently you can add policy as normal user">
+      <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Agreement/Agreement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/Partner/Partner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Domain/RiskAnalysis/RiskAnalysis.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication5/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/Database/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Database/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/Initializers/DbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Initializers/DbInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Infrastructure/UserManagement/UserRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/UserManagement/UserRoles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/Areas/Identity/Pages/Account/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Areas/Identity/Pages/Account/Login.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/InsurenceProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/InsurenceProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InsurenceProject/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/InsurenceProject/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Base/GenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Base/GenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Base/IGenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Base/IGenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/UnitOfWork/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/UnitOfWork/IUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/UnitOfWork/UnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/UnitOfWork/UnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication5.sln" beforeDir="false" afterPath="$PROJECT_DIR$/InsuranceApplication.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/Policy/PolicyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Policy/PolicyService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +140,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725632858485</updated>
-      <workItem from="1725632859633" duration="22138000" />
+      <workItem from="1725632859633" duration="24070000" />
     </task>
     <task id="LOCAL-00001" summary="sigortacilik first commit application db context ve yapı ayarlaması base">
       <option name="closed" value="true" />
@@ -210,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725731353616</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="db migration &#10;currently you can add policy as normal user">
+      <option name="closed" value="true" />
+      <created>1725751106177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725751106177</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +190,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="sigortacilik first commit application db context ve yapı ayarlaması base" />
     <MESSAGE value="commit fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit fix" />
+    <MESSAGE value="db migration &#10;currently you can add policy as normal user" />
+    <option name="LAST_COMMIT_MESSAGE" value="db migration &#10;currently you can add policy as normal user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

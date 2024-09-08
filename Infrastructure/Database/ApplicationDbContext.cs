@@ -1,4 +1,7 @@
 using Domain;
+using Domain.Agreement;
+using Domain.Partner;
+using Domain.RiskAnalysis;
 using Domain.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +17,9 @@ public class ApplicationDbContext :  IdentityDbContext<User>
 
     public DbSet<User> Users { get; set; }
     public DbSet<Policies> Policies { get; set; }
+    public DbSet<Agreement> Agreements { get; set; }
+    public DbSet<Partner> Partners { get; set; }
+    public DbSet<RiskAnalysis> RiskAnalyses { get; set; }
     
     
    

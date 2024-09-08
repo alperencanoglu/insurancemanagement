@@ -16,7 +16,7 @@ public class PolicyService :IPolicyService
         _unitOfWork = unitOfWork;
     }
     
-    public PaginatedResult<PolicyViewModel> GetPolicies(int pageIndex, int pageSize,)
+    public PaginatedResult<PolicyViewModel> GetPolicies(int pageIndex, int pageSize)
     {
         int ExcludeRecords = (pageSize * pageIndex) - pageSize;
         
