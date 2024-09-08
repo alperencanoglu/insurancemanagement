@@ -34,6 +34,22 @@ builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAgreementService, AgreementService>();
 var app = builder.Build();
 
+app.UseWebSockets();
+
+var webSocketHandler = new WebSocketHandler();
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/ws")
+    {
+        await webSocketHandler.HandleWebSocketAsync(context);
+    }
+    else
+    {
+        await next();
+    }
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

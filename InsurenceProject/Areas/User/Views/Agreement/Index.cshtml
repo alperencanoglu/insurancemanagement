@@ -35,24 +35,24 @@
 </div>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().AgreementName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().RiskAmount)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().AgreementName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaginatedResult.Items.FirstOrDefault().RiskAmount)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.PaginatedResult.Items) {
+    @foreach (var item in Model.PaginatedResult.Items) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AgreementName)
@@ -72,9 +72,49 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<h2>Veri Grafiği</h2>
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<script>
+    // Controller'dan gelen verileri alıyoruz
+    var dataFromServer = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PaginatedResult.Items.Select(x => x.RiskAmount)));
+
+    var labelsFromServer = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PaginatedResult.Items.Select(x => x.AgreementName)));
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',  // Grafik tipi: bar (çubuk grafik)
+        data: {
+            labels: labelsFromServer,  // X ekseni etiketleri
+            datasets: [{
+                label: 'Veri Seti',
+                data: dataFromServer,  // Y ekseni değerleri
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true  // Y ekseninin sıfırdan başlamasını sağlar
+                }
+            }
+        }
+    });
+</script>
+
+
+
+
 
 
 <script>
@@ -147,3 +187,56 @@
         }
     }, 500);
 </script>
+
+
+
+
+<div id="output">WebSocket bağlantısı için basit bir örnek</div>
+
+<script>
+        // WebSocket bağlantısını başlatıyoruz
+        let socket = new WebSocket("https://localhost:7068/ws");
+
+        // Bağlantı açıldığında çalışır
+        socket.onopen = function(e) {
+            console.log("Connection established.");
+            document.getElementById('output').innerHTML += '<p>Connection established.</p>';
+
+            // Her 10 saniyede bir mesaj göndermek için setInterval kullanıyoruz
+             setInterval(function() {
+
+                 if (socket.readyState === WebSocket.OPEN) {
+                     const message = `Ping from client at ${new Date().toLocaleTimeString()}`;
+                     socket.send(message);
+                     document.getElementById('output').innerHTML += `<p>Sent: ${message}</p>`;
+                 } else {
+                     clearInterval(intervalId);  // WebSocket kapalıysa mesaj göndermeyi durdur
+                 }
+            }, 100); // 10000 milisaniye = 10 saniye
+        };
+
+        // Sunucudan gelen mesajları dinliyoruz
+        socket.onmessage = function(event) {
+            console.log(`[message] Data received from server: ${event.data}`);
+            document.getElementById('output').innerHTML += `<p>Server: ${event.data}</p>`;
+        };
+
+        // Bağlantı kapandığında çalışır
+        socket.onclose = function(event) {
+            if (event.wasClean) {
+                console.log(`[close] Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+            } else {
+                console.error('[close] Connection died');
+            }
+        };
+
+        // Hata oluştuğunda çalışır
+        socket.onerror = function(error) {
+            console.error(`[error] ${error.message}`);
+        };
+
+        setTimeout(function() {
+            socket.close()
+            document.getElementById('output').innerHTML += `<p>Socket Closed</p>`;
+        }, 10000); // 10000 milisaniye = 10 saniye
+    </script>
