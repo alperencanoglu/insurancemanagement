@@ -60,12 +60,27 @@ app.MapRazorPages();
 app.MapAreaControllerRoute(
     name: "User",
     areaName: "User",
-    
     pattern: "User/{controller=Home}/{action=Index}/{id?}");
+
+
+app.MapAreaControllerRoute(
+    name: "Admin",
+    areaName: "Admin",
+    pattern: "Admin/{controller=User}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+    endpoints.MapDefaultControllerRoute();
+});
 
 
 

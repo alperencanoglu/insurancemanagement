@@ -29,9 +29,12 @@
 
     <ItemGroup>
       <Folder Include="Areas\Admin\Controllers\" />
-      <Folder Include="Areas\Admin\Views\" />
       <Folder Include="Areas\Customer\Controllers\" />
       <Folder Include="Areas\Customer\Views\" />
+      <Folder Include="Areas\Index\Controllers\" />
+      <Folder Include="Areas\Index\Data\" />
+      <Folder Include="Areas\Index\Models\" />
+      <Folder Include="Areas\Index\Views\" />
       <Folder Include="Areas\User\Views\Policy\" />
     </ItemGroup>
 
